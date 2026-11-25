@@ -7,49 +7,57 @@
     ========================================= */
 
     const categorias = {
-        entregas: 'Entregas y equipamiento',
-        salud: 'Salud comunitaria',
-        vacunacion: 'Vacunación'
+        comunidad: 'Comunidad',
+        equipo: 'Equipo y aprendizaje'
     };
 
     // Información provisional para la maqueta académica.
 
     const noticias = [
         {
-            id: 'ambulancia',
-            categoria: 'entregas',
+            id: 'campana',
+            categoria: 'comunidad',
             fecha: '',
-            titulo: 'Reporte de entrega de ambulancia',
-            imagen: 'ambulancia.jpg',
-            resumen: 'Información sobre unidades de transporte asistencial.',
-            texto: 'Este espacio está reservado para documentar una entrega de ambulancia. La publicación definitiva debe incluir fecha, características generales, entidad responsable y enlace a la fuente oficial.'
+            titulo: 'Actividad comunitaria · imagen referencial',
+            imagen: '5.jpg',
+            resumen: 'Fotografía ilustrativa aportada por el equipo para la maqueta.',
+            texto: 'Esta imagen se incluye solo como referencia visual. No confirma que la actividad haya ocurrido en Mochumí ni representa un registro oficial del establecimiento.'
         },
         {
-            id: 'salud',
-            categoria: 'salud',
+            id: 'equipo',
+            categoria: 'equipo',
             fecha: '',
-            titulo: 'Campaña de atención integral',
-            imagen: 'campana-salud.jpg',
-            resumen: 'Prevención, orientación y atención para la comunidad.',
-            texto: 'Modelo de publicación para jornadas de salud comunitaria. Incorporar servicios ofrecidos, lugar, fecha y recomendaciones confirmadas por el establecimiento.'
+            titulo: 'Personal de salud · imagen referencial',
+            imagen: '6.jpg',
+            resumen: 'Fotografía ilustrativa aportada por el equipo para la maqueta.',
+            texto: 'Esta imagen se incluye solo como referencia visual. No confirma que las personas fotografiadas pertenezcan al Centro de Salud de Mochumí.'
         },
         {
-            id: 'vacunas',
-            categoria: 'vacunacion',
+            id: 'orientacion',
+            categoria: 'comunidad',
             fecha: '',
-            titulo: 'Jornada de vacunación',
-            imagen: 'vacunacion.jpg',
-            resumen: 'Información sobre actividades de inmunización.',
-            texto: 'Espacio para publicar información verificada sobre jornadas de vacunación, población destinataria, horario y lugar de atención.'
+            titulo: 'Orientación comunitaria · imagen referencial',
+            imagen: '7.jpg',
+            resumen: 'Fotografía ilustrativa aportada por el equipo para la maqueta.',
+            texto: 'Esta imagen se incluye solo como referencia visual. No confirma que la actividad haya ocurrido en Mochumí ni representa un registro oficial del establecimiento.'
         },
         {
-            id: 'prevencion',
-            categoria: 'salud',
+            id: 'sis',
+            categoria: 'comunidad',
             fecha: '',
-            titulo: 'Promoción de hábitos saludables',
-            imagen: 'galeria/actividad-comunitaria.jpg',
-            resumen: 'Orientación y educación para el bienestar familiar.',
-            texto: 'Ejemplo de publicación sobre educación sanitaria. Reemplazar con el registro de una actividad real y su fuente.'
+            titulo: 'Orientación sobre salud · imagen referencial',
+            imagen: '8.jpg',
+            resumen: 'Fotografía ilustrativa aportada por el equipo para la maqueta.',
+            texto: 'Esta imagen se incluye solo como referencia visual. No confirma que la actividad haya ocurrido en Mochumí ni representa un registro oficial del establecimiento.'
+        },
+        {
+            id: 'capacitacion',
+            categoria: 'equipo',
+            fecha: '',
+            titulo: 'Capacitación de personal · imagen referencial',
+            imagen: '10.jpg',
+            resumen: 'Fotografía ilustrativa aportada por el equipo para la maqueta.',
+            texto: 'Esta imagen se incluye solo como referencia visual. No confirma que la actividad haya ocurrido en Mochumí ni representa un registro oficial del establecimiento.'
         }
     ];
 
@@ -65,7 +73,8 @@
         { ...noticias[0], fecha: '2026-10-01' },
         { ...noticias[1], fecha: '2026-08-01' },
         { ...noticias[2], fecha: '2025-09-01' },
-        { ...noticias[3], fecha: '2025-06-01' }
+        { ...noticias[3], fecha: '2025-06-01' },
+        { ...noticias[4], fecha: '2025-04-01' }
     ];
 
     const fotos = noticias.map(({ imagen, titulo }) => ({
@@ -78,7 +87,7 @@
        3. VARIABLES Y FUNCIONES AUXILIARES
     ========================================= */
 
-    const base = 'img/noticias/';
+    const base = 'img/';
 
     const $ = id => document.getElementById(id);
 
@@ -139,13 +148,8 @@
         img.alt = descripcion;
 
         img.onerror = () => {
-
             img.onerror = null;
-
-            img.src = `${base}sin-imagen.svg`;
-
-            img.alt = `Imagen pendiente: ${descripcion}`;
-
+            img.alt = `No se pudo cargar la imagen: ${descripcion}`;
         };
 
         img.src = `${base}${ruta}`;

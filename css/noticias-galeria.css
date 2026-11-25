@@ -135,10 +135,19 @@
     place-items: center;
     width: 2.6rem;
     height: 2.6rem;
+    overflow: hidden;
     background: var(--ng-green);
     color: white;
     border-radius: .75rem;
     font-size: 2rem;
+}
+
+.pagina-noticias .ng-brand__mark img {
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    background: white;
+    object-fit: contain;
 }
 
 .pagina-noticias .ng-menu {
@@ -549,6 +558,13 @@
     color: white;
 }
 
+.pagina-noticias .ng-footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+    margin-block: 1rem;
+}
+
 
 /* =========================================
    12. DISEÑO RESPONSIVE
@@ -581,6 +597,10 @@
     .pagina-noticias .ng-nav {
         width: auto;
         flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        max-width: calc(100% - 15rem);
+        gap: .15rem;
     }
 
 }

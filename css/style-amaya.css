@@ -36,9 +36,29 @@ a {
     color: inherit;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 a:focus-visible {
     outline: 3px solid var(--color-acento);
     outline-offset: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    z-index: 20;
+    top: -5rem;
+    left: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    background: var(--color-azul);
+    color: var(--color-blanco);
+}
+
+.skip-link:focus {
+    top: 1rem;
 }
 
 .contacto-encabezado {
@@ -461,6 +481,18 @@ a:focus-visible {
     font-size: 14px;
 }
 
+.contacto-pie nav {
+    display: flex;
+    flex: 0 1 460px;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    font-size: 12px;
+}
+
+.contacto-pie nav a {
+    color: #e2edf2;
+}
+
 @media (max-width: 760px) {
     .contacto-encabezado__contenedor,
     .contacto-pie__contenedor,
@@ -471,11 +503,14 @@ a:focus-visible {
     }
 
     .contacto-encabezado__contenedor {
+        flex-wrap: wrap;
         min-height: 74px;
     }
 
     .contacto-navegacion {
-        gap: 16px;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 8px 16px;
     }
 
     .contacto-navegacion a {
@@ -643,6 +678,23 @@ a:focus-visible {
     display: flex;
     align-items: center;
     gap: 23px;
+}
+
+.nosotros-logo {
+    width: 96px;
+    height: 110px;
+    margin-inline: auto;
+    border-radius: 12px;
+    background: var(--color-blanco);
+    object-fit: contain;
+    padding: 4px;
+}
+
+.nosotros-organigrama__nota {
+    margin: 20px 0 0;
+    color: var(--color-secundario);
+    font-size: 13px;
+    text-align: center;
 }
 
 .nosotros-navegacion a {
@@ -1263,6 +1315,7 @@ a:focus-visible {
 .nosotros-pie__contenedor {
     min-height: 112px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
@@ -1280,6 +1333,20 @@ a:focus-visible {
     color: var(--color-blanco);
     font-family: "Montserrat", Arial, sans-serif;
     font-size: 14px;
+}
+
+.nosotros-pie nav {
+    display: flex;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 12px;
+}
+
+.nosotros-pie nav a {
+    color: #e2edf2;
 }
 
 @media (max-width: 760px) {
@@ -1303,7 +1370,8 @@ a:focus-visible {
 
     .nosotros-navegacion {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+        flex-wrap: wrap;
         gap: 8px;
     }
 
